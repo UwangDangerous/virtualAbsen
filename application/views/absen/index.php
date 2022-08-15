@@ -52,7 +52,7 @@
                             </div>
                 
                             <div class="modal-body">
-                                <?= MYURL; ?>form/absensi/<?= $row['id_absen'] ; ?>
+                                <?= MYURL; ?>
                             </div>
                         </div>
                     </div>

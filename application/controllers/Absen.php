@@ -22,7 +22,8 @@
             
             $this->form_validation->set_rules('judul', 'Judul', 'required');
             $this->form_validation->set_rules('tgl_absen', 'Tanggal Rapat', 'required');
-            $this->form_validation->set_rules('meeting', 'ID Meeting', 'required|numeric');
+            $this->form_validation->set_rules('meeting', 'ID Meeting', 'required');
+            $this->form_validation->set_rules('token_zoom', 'Token', 'required');
 
             if($this->form_validation->run() == FALSE) {
                 $this->load->view('temp/header', $data) ;
@@ -39,7 +40,8 @@
             
             $this->form_validation->set_rules('judul', 'Judul', 'required');
             $this->form_validation->set_rules('tgl_absen', 'Tanggal Rapat', 'required');
-            $this->form_validation->set_rules('meeting', 'ID Meeting', 'required|numeric');
+            $this->form_validation->set_rules('meeting', 'ID Meeting', 'required');
+            $this->form_validation->set_rules('token_zoom', 'Token', 'required');
 
             if($this->form_validation->run() == FALSE) {
                 $this->load->view('temp/header', $data) ;

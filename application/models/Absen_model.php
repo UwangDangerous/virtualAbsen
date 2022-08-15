@@ -14,6 +14,7 @@
             $query = [
                 'judul' => $this->input->post('judul') ,
                 'tgl_absen' => $this->input->post('tgl_absen') ,
+                'token_zoom' => $this->input->post('token_zoom') ,
                 'meeting' => $this->input->post('meeting') 
             ];
 
@@ -38,7 +39,8 @@
             $query = [
                 'judul' => $this->input->post('judul') ,
                 'tgl_absen' => $this->input->post('tgl_absen') ,
-                'meeting' => $this->input->post('meeting') 
+                'token_zoom' => $this->input->post('token_zoom') ,
+                'meeting' => $this->input->post('meeting')  
             ];
 
             $this->db->where("id_absen", $id) ;
