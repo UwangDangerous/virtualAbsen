@@ -17,6 +17,18 @@
             $this->load->view('temp/footer') ;
         }
 
+        public function peserta_rapat($id) {
+            $data['judul'] = "Absen Virtual" ;
+            $data['absen'] = $this->Absen_model->getDataAbsen($id)->row_array() ;
+
+            $this->db->where("id_absen", $id) ;
+            $data['vir'] = $this->db->get("form_absen")->result_array() ;
+            
+            $this->load->view('temp/header', $data) ;
+            $this->load->view('absen/peserta_rapat') ;
+            $this->load->view('temp/footer') ;
+        }
+
         public function tambah() {
             $data['judul'] = "Tambah Absen Virtual" ;
             

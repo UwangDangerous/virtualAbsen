@@ -29,8 +29,8 @@
                     <td><?= $this->Utility_model->formatTanggal($row['tgl_absen']) ; ?></td>
                     <td><?= $row['meeting']; ?></td>
                     <td>
-                        <a href="<?= MYURL; ?>absen/ubah/<?= $row['id_absen'];?>" class="badge badge-primary" data-toggle="tooltip" title="Absensi Peserta Rapat"><i class="fa fa-users"></i></a>
-                        <a href="<?= MYURL; ?>absen/ubah/<?= $row['id_absen'];?>" class="badge badge-info" data-toggle="tooltip" title="Peserta Zoom"><i class="fa fa-user"></i></a>
+                        <a href="<?= MYURL; ?>absen/peserta_rapat/<?= $row['id_absen'];?>" class="badge badge-primary" data-toggle="tooltip" title="Absensi Peserta Rapat"><i class="fa fa-users"></i></a>
+                        <a href="<?= MYURL; ?>absen/peserta_zoom/<?= $row['id_absen'];?>" class="badge badge-info" data-toggle="tooltip" title="Peserta Zoom"><i class="fa fa-user"></i></a>
                         <?php if($row['status'] == 0) : ?>
                             <a href="<?= MYURL; ?>absen/selesai/<?= $row['id_absen'];?>" class="badge badge-success" data-toggle="tooltip" title="Rapat Selesai" onclick="return confirm('Rapat Selesai?')"><i class="fa fa-check"></i></a>
                             <a href="#" class="badge badge-warning"  data-toggle="modal" data-target="#Modal_<?= $row['id_absen']; ?>" data-toggle="tooltip" title="Bagikan Link"><i class="fa fa-link"></i></a>
