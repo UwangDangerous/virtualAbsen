@@ -9,8 +9,9 @@
         // } 
 
         public function index() {
-            $data['judul'] = "PPPOMN - Perjalanan Dinas" ;
+            $data['judul'] = WEB ;
             $this->load->view('temp/header', $data) ;
+            $this->load->view('temp/navbar') ;
             $this->load->view('home/index') ;
             $this->load->view('temp/footer') ;
         }

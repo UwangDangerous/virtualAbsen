@@ -1,7 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-define("SEO", "TU CERIA");
-define("MYURL", "http://localhost/tu/");
+define("SEO", "Virtual Absen - PPPOMN , PPPOMN, Pusat Pengembangan Pengujian Obat dan Makanan Nasional, silva, dikolaboraasi, bpom");
+define("WEB", "Virtual Absen - PPPOMN");
+define("MYURL", "http://localhost/virtualAbsen/");
 
 /*
 |--------------------------------------------------------------------------

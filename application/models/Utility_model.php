@@ -69,6 +69,11 @@
                 return $hari.''.$bulan[2].' '.$b.' '.$bulan[0] ;
             }
         }
+
+        public function myHash($hash)
+        {
+            return md5(sha1($hash)) ;
+        }
     }
 
 ?>

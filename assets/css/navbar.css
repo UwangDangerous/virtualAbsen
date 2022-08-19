@@ -1,13 +1,23 @@
-.my-bg-navbar{
-    background-color: #07385b; ;
-}
+/* .my-bg-navbar{
+    background-color: #07385b;
+} */
 
 .nav-link:hover{
-    background-color : #001d32; 
+    background-color : #004c82; 
     border-radius: 5px;
+    padding-left: 5px;
 }
 
 .nav-link:active{
     background-color : #8db9d8; 
     border-radius: 5px;
+}
+
+#mybread{
+    background-color:rgb(222, 222, 222);
+    padding:12px 10px 4px 40px;
+    border-radius: 10px;
+}
+#mybread li{
+    color:black; 
 }
