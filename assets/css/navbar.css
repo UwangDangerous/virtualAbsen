@@ -21,3 +21,29 @@
 #mybread li{
     color:black; 
 }
+
+#my-bg{
+    background-image: url('../img/bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#login{
+    margin-top: 80px;
+}
+
+#login .card{
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 768px) { 
+    #my-bg{
+        background-size: 700px;
+        background-position: center;
+        background-position-y: 100px;
+    }
+
+    #login{
+        margin-top: 40px;
+    }
+ }

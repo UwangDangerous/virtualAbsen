@@ -17,26 +17,29 @@
         </div>
     </div>
 </nav> -->
-<body>
+
 <nav class="navbar fixed-top navbar-dark bg-primary my-bg-navbar">
   <div class="container">
-    <a class="navbar-brand" href="<?= MYURL ;?>">NAMA YG PUNYA AKUN</a>
+    <a class="navbar-brand" href="<?= MYURL ;?>"><?= $this->session->userdata('pppomn_lain'); ?></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
     <!-- offcanvas -->
         <div class="offcanvas offcanvas-end text-bg-primary" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">NAMA YG PUNYA AKUN</h5>
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel"><?= $this->session->userdata('pppomn_nama'); ?></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="<?= MYURL ; ?>admin">Admin</a>
+                        <a class="nav-link active" href="<?= MYURL ; ?>admin">Admin</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link active" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="<?= MYURL;?>login/logout" onclick="return confirm('Akhiri Sesi Ini?')">Logout</a>
                     </li>
                 </ul>
             </div>
