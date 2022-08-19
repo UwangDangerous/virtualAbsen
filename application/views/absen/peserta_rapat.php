@@ -23,12 +23,17 @@
                     $this->db->where('id_absen', $absen['id_absen']) ;
                     $this->db->where('ip_zoom', $row['alamat_ip']) ;
                     $zoom = $this->db->get('zoom_participant')->row_array() ;
+                    if($zoom){
+
+                        if($row['alamat_ip'] == $zoom['ip_zoom']) {
+                            $hadir = 'alert-success' ;
+                        }else{
+                            $hadir = '' ;
+                        }
+                    }else{
+                        $hadir = '' ;
+                    }
                 ?>
-                <?php if($row['alamat_ip'] == $zoom['ip_zoom']) {
-                    $hadir = 'alert-success' ;
-                }else{
-                    $hadir = '' ;
-                }?>
                 <tr class="<?= $hadir ;?>">
                     <td><?= $no++; ?></td>
                     <td><?= $row['nama']; ?></td>

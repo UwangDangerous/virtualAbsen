@@ -29,6 +29,56 @@
             $this->load->view('temp/footer') ;
         }
 
+        public function peserta_zoom($id) {
+            $data['judul'] = "Data Peserta Zoom" ;
+            $data['absen'] = $this->Absen_model->getDataAbsen($id)->row_array() ;
+
+            $this->db->where("id_absen", $id) ;
+            $data['vir'] = $this->db->get("form_absen")->result_array() ;
+            
+            $this->load->view('temp/header', $data) ;
+            $this->load->view('absen/peserta_zoom') ;
+            $this->load->view('temp/footer') ;
+        }
+
+        public function dataPesertaZoomApi($id_absen)
+        {
+            $id = $this->input->post('id');
+            $token = $this->input->post('token');
+            // echo $id.'ok' ;
+            // die ;
+
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.zoom.us/v2/metrics/meetings/$id/participants",
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 1,
+            CURLOPT_TIMEOUT => 300,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                "authorization: Bearer $token",
+                "content-type: application/json",
+                "page_size : 300"
+            ),
+            ));
+            // header('Content-Type: application/json');
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+            curl_close($curl);
+            if ($err) {
+                echo "cURL Error #:" . $err;
+            }else {
+                // echo $response;
+                $data = json_decode($response, true) ;
+                $data['peserta'] = $data['participants'] ;
+                $data['id_absen'] = $id_absen ;
+                $this->load->view('absen/getPeserta', $data);
+            }
+        }
+
+
         public function tambah() {
             $data['judul'] = "Tambah Absen Virtual" ;
             

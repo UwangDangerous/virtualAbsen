@@ -36,22 +36,22 @@
                 
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href='<?= MYURL; ?>rapat' class="nav-link" > Ruang Rapat </a>
-                        </li>
+                        <!-- <li class="nav-item">
+                            <a href='<?//= MYURL; ?>rapat' class="nav-link" > Ruang Rapat </a>
+                        </li> -->
                         <li class="nav-item">
                             <a href='<?= MYURL; ?>absen' class="nav-link" > Virtual Absen </a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href='#login'  data-toggle="modal" data-target="#masuk" data-toggle='tooltip' title='Login Admin' class="nav-link" id="login">Login</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
         </nav>
 
         <!-- Modal -->
-        <div class="modal fade" id="masuk" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- <div class="modal fade" id="masuk" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -81,7 +81,7 @@
                 </form>
             </div>
         </div>
-        </div>       
+        </div>        -->
         <div class="p-3">
             <section>
 

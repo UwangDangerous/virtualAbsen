@@ -1,4 +1,10 @@
+<?php 
+// echo "IP address".$_SERVER["REMOTE_ADDR"] ;
 
+// echo "LAN Address".$_SERVER["HTTP_X_FORWARDED_FOR"]  ;
+// die ;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -137,6 +143,19 @@
                                     <input type="radio" id="10" name="bidang" value="Balai Pengujian Produk Biologi">
                                     <label for="10">Balai Pengujian Produk Biologi</label>
                                 </div>
+
+                                <label for="username">Username</label>
+                                <input type="text" name="username" id="username" class='form-control mb-3'>
+                                <label for="username">Username</label>
+                                <input type="text" name="username" id="username" class='form-control mb-3'>
+                                <label for="username">Username</label>
+                                <input type="text" name="username" id="username" class='form-control mb-3'>
+                                <label for="username">Username</label>
+                                <input type="text" name="username" id="username" class='form-control mb-3'>
+                                <label for="username">Username</label>
+                                <input type="text" name="username" id="username" class='form-control mb-3'>
+                                <label for="username">Username</label>
+                                <input type="text" name="username" id="username" class='form-control mb-3'>
                                 
                             </div>
                             <button type="submit" class="btn btn-outline-primary">Simpan</button>
