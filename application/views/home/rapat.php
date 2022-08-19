@@ -38,7 +38,7 @@
                             <?php endif; ?>
                         </td>
                         <td>
-                            <a href="" class="badge bg-success"><i class="fa fa-edit"></i></a>
+                            a.badge.badge>
                         </td>
                     </tr>
                 <?php endforeach; ?>

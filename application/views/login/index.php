@@ -1,7 +1,7 @@
 <body id="my-bg">
     <div class="container-fluid">
         <div class="row justify-content-center" id="login">
-            <div class="col-lg-5">
+            <div class="col-lg-4">
                 <div class="card p-2 text-center">
                     <span><img src="<?= base_url() ;?>assets/img/logo.png" width="100px" alt="<?= SEO; ?>"></span>
                     <h5 class="mt-3 mb-5">Login Virtual Absen PPPOMN</h5>
@@ -24,6 +24,10 @@
                             </div>
                         </form>
                     </div>
+
+                    <span class="mt-5 mb-3" style="font-size:8pt">
+                        Copyright &#169; Pusat Pengembangan Pengujian Obat Dan Makanan Nasional 2022
+                    </span>
                 </div>
             </div>
         </div>

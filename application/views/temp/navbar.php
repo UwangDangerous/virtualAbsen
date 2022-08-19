@@ -36,7 +36,10 @@
                         <a class="nav-link active" href="<?= MYURL ; ?>admin">Admin</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Link</a>
+                        <a class="nav-link active" href="<?= MYURL ; ?>home/rapat">Jadwal Rapat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" data-bs-toggle="modal" data-bs-target="#link" data-toggle="tooltip" title="Link Form Virtual Absen">Link</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="<?= MYURL;?>login/logout" onclick="return confirm('Akhiri Sesi Ini?')">Logout</a>
@@ -49,36 +52,37 @@
 </nav>
 
 <!-- Modal -->
-<!-- <div class="modal fade" id="masuk" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Login Admin</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <form action="" method='post'>
+<div class="modal fade" id="link" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Link Absen Virtual</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
             <div class="modal-body">
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1"> <i class="fa fa-user-tie"></i> </span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Username">
-                </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1"> <i class="fa fa-lock"></i> </span>
-                    </div>
-                    <input type="password" class="form-control" placeholder="Password">
-                </div>
+                <input type="text" class="form-control" disabled value="<?= MYURL;?>absen/form/<?= $this->session->userdata('pppomn_lain'); ?>" id="myInput">
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button onclick="myFunction()" class="btn btn-primary" data-toggle="tooltip" title="Copy"><i class="fas fa-clipboard"></i></button>
             </div>
-        </form>
+        </div>
     </div>
-</div>
-</div>        -->
+</div>       
 <div class="p-3">
     <section>
+
+    
+<script>
+    function myFunction() {
+    /* Get the text field */
+    var copyText = document.getElementById("myInput");
+
+    /* Select the text field */
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+    /* Copy the text inside the text field */
+    navigator.clipboard.writeText(copyText.value);
+    
+    }
+</script>
