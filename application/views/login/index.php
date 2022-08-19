@@ -1,5 +1,5 @@
 <body id="my-bg">
-    <div class="container-fluid">
+    <div class="container">
         <div class="row justify-content-center" id="login">
             <div class="col-lg-4">
                 <div class="card p-2 text-center">
@@ -25,8 +25,9 @@
                         </form>
                     </div>
 
-                    <span class="mt-5 mb-3" style="font-size:8pt">
-                        Copyright &#169; Pusat Pengembangan Pengujian Obat Dan Makanan Nasional 2022
+                    <span class="mt-5 mb-3" style="font-size:8pt;">
+                        Copyright &#169; Pusat Pengembangan Pengujian Obat Dan Makanan Nasional 2022 <br>
+                        <a href="<?= MYURL ;?>">Rapat PPPOMN</a>
                     </span>
                 </div>
             </div>

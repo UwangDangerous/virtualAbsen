@@ -1,48 +1,52 @@
-<div class="container">
-    <h3>Daftar Rapat <?= $this->session->userdata('pppomn_nama') ?></h3>
-    <?php if($this->session->flashdata('pesan')) : ?>
-        <div class="alert alert-<?= $this->session->flashdata('warna') ;?> alert-dismissible fade show mt-2" role="alert">
-            <?= $this->session->flashdata('pesan'); ?>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <?php endif; ?>
+<body id="my-bg">
+    <div class="container">
+        <div class="row justify-content-center" id="home">
+            <div class="col-lg-11">
+                <div class="card p-2 text-center">
 
-    <a href="<?= MYURL.'home/tambah' ;?>" class="btn btn-primary mb-3 mt-3">Tambah Data</a>
-    <div class="table-responsive">
-        <table class="table table-sm table-border text-center" id="tabel" border=1>
-            <thead>
-                <tr>
-                    <th>No</th>
-                    <th>Rapat</th>
-                    <th>Lokasi</th>
-                    <th>Tanggal Rapat</th>
-                    <th>ID Meeting</th>
-                    <th>Status</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php $no=1 ; ?>
-                <?php foreach($data as $row) : ?>
-                    <tr>
-                        <td><?= $no++ ?></td>
-                        <td><?= $row['judul'] ?></td>
-                        <td><?= $row['tempat'] ?></td>
-                        <td><?= $row['tgl_rapat'] ?></td>
-                        <td><?= $row['meeting'] ?></td>
-                        <td>
-                            <?php if($row['status'] == 1) : ?>
-                                <i class="text-success">Selesai</i>
-                            <?php else : ?>
-                                -
-                            <?php endif; ?>
-                        </td>
-                        <td>
-                            <a href="" class="badge bg-success"><i class="fa fa-edit"></i></a>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+                    <h3>Daftar Rapat PPPOMN</h3>
+
+                    <div class="table-responsive">
+                        <table class="table table-sm table-border text-center" id="tabel" border=1>
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Admin</th>
+                                    <th>Rapat</th>
+                                    <th>Lokasi</th>
+                                    <th>Tanggal Rapat</th>
+                                    <th>ID Meeting</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $no=1 ; ?>
+                                <?php foreach($data as $row) : ?>
+                                    <tr>
+                                        <td><?= $no++ ?></td>
+                                        <td><?= $row['nama_admin'] ?></td>
+                                        <td><?= $row['judul'] ?></td>
+                                        <td><?= $row['tempat'] ?></td>
+                                        <td><?php 
+                                            $tgl = explode(" ", $row['tgl_rapat']) ;
+                                            echo $this->Utility_model->formatTanggal($tgl[0]).' '. $tgl[1] ;
+                                        ?>
+                                        </td>
+                                        <td><?= $row['meeting'] ?></td>
+                                        <td>
+                                            <a href="<?= MYURL; ?>absen/form/<?= $row['id_rapat']; ?>" class="badge bg-primary"><i class="fas fa-clipboard-list"></i></a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <span class="mt-5 mb-3" style="font-size:8pt; ">
+                        Copyright &#169; Pusat Pengembangan Pengujian Obat Dan Makanan Nasional 2022 <br>
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</body>

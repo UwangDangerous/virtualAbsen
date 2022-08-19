@@ -20,7 +20,7 @@
 
 <nav class="navbar fixed-top navbar-dark bg-primary my-bg-navbar">
   <div class="container">
-    <a class="navbar-brand" href="<?= MYURL ;?>"><?= $this->session->userdata('pppomn_lain'); ?></a>
+    <a class="navbar-brand" href="<?= MYURL ;?>home/rapat"><?= $this->session->userdata('pppomn_lain'); ?></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>

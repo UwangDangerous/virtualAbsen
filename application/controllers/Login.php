@@ -31,7 +31,7 @@ class Login extends CI_Controller{
                     'pppomn_nama' => $data['nama_admin'],
                     'pppomn_lain' => $data['nama_lain'],
                 ]) ;
-                redirect(MYURL) ;
+                redirect(MYURL.'home/rapat') ;
             }else{
                 $this->session->set_flashdata('pesan', 'username / password salah') ;
                 redirect(MYURL."login") ;

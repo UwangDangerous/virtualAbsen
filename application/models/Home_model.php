@@ -7,6 +7,8 @@ class Home_model extends CI_Model{
         }
         $adm = $this->session->userdata('pppomn');
         $this->db->where('status', 0) ;
+        $this->db->join('admin', 'admin.id = rapat.id') ;
+        $this->db->order_by('id_rapat', 'desc') ;
         return $this->db->get('rapat')->result_array()  ;
     }
 
@@ -43,6 +45,6 @@ class Home_model extends CI_Model{
         }
 
         $this->session->set_flashdata($pesan) ;
-        redirect(MYURL) ;
+        redirect(MYURL.'home/rapat') ;
     }
 }
