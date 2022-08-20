@@ -27,14 +27,15 @@
                                         <td><?= $row['nama_admin'] ?></td>
                                         <td><?= $row['judul'] ?></td>
                                         <td><?= $row['tempat'] ?></td>
-                                        <td><?php 
-                                            $tgl = explode(" ", $row['tgl_rapat']) ;
-                                            echo $this->Utility_model->formatTanggal($tgl[0]).' '. $tgl[1] ;
-                                        ?>
+                                        <td>
+                                            <?php 
+                                                $tgl = explode(" ", $row['tgl_rapat']) ;
+                                                echo $this->Utility_model->formatTanggal($tgl[0]).' '. $tgl[1] ;
+                                            ?>
                                         </td>
                                         <td><?= $row['meeting'] ?></td>
                                         <td>
-                                            <a href="<?= MYURL; ?>absen/form/<?= $row['id_rapat']; ?>" class="badge bg-primary"><i class="fas fa-clipboard-list"></i></a>
+                                            <a href="<?= MYURL; ?>absen/form/<?= $row['id_rapat']; ?>" class="badge bg-primary" target="blank"><i class="fas fa-clipboard-list"></i></a>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -44,6 +45,9 @@
 
                     <span class="mt-5 mb-3" style="font-size:8pt; ">
                         Copyright &#169; Pusat Pengembangan Pengujian Obat Dan Makanan Nasional 2022 <br>
+                        <?php if($this->session->userdata('pppomn') != null) : ?>
+                            <a href="<?= MYURL ;?>home/rapat">Dashboard</a>
+                        <?php endif; ?>
                     </span>
                 </div>
             </div>

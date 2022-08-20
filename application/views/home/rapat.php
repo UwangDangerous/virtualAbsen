@@ -28,7 +28,12 @@
                         <td><?= $no++ ?></td>
                         <td><?= $row['judul'] ?></td>
                         <td><?= $row['tempat'] ?></td>
-                        <td><?= $row['tgl_rapat'] ?></td>
+                        <td>
+                            <?php 
+                                $tgl = explode(" ", $row['tgl_rapat']) ;
+                                echo $this->Utility_model->formatTanggal($tgl[0]).' '. $tgl[1] ;
+                            ?>
+                        </td>
                         <td><?= $row['meeting'] ?></td>
                         <td>
                             <?php if($row['status'] == 1) : ?>
@@ -38,7 +43,16 @@
                             <?php endif; ?>
                         </td>
                         <td>
-                            a.badge.badge>
+                            <?php if($row['status'] == 0) : ?>
+                                <a href="<?= MYURL ;?>home/ubahRapat/<?= $row['id_rapat']; ?>" class="badge bg-success" data-toggle="tooltip" title="Ubah Data"><i class="fa fa-edit"></i></a>
+                                <a href="<?= MYURL ;?>home/hapusRapat/<?= $row['id_rapat']; ?>" class="badge bg-danger" data-toggle="tooltip" title="Hapus Data" onclick="return confirm('Hapus Data?')"><i class="fa fa-trash"></i></a>
+                                <a href="<?= MYURL ;?>home/selesai/<?= $row['id_rapat']; ?>" class="badge bg-success" data-toggle="tooltip" title="Rapat Telah Selesai" onclick="return confirm('Rapat Telah Selesai')"><i class="fa fa-check"></i></a>
+                            <?php endif; ?>
+
+                            <a href="<?= MYURL ;?>home/peserta/<?= $row['id_rapat']; ?>" class="badge bg-primary" data-toggle="tooltip" title="Rapat Telah Selesai"><i class="fa fa-users"></i></a>
+                            <?php if($row['token_zoom'] != null) : ?>
+                                <a href="<?= MYURL ;?>home/participant/<?= $row['id_rapat']; ?>" class="badge bg-info" data-toggle="tooltip" title="Rapat Telah Selesai"><i class="fa fa-user"></i></a>
+                            <?php endif; ?>
                         </td>
                     </tr>
                 <?php endforeach; ?>

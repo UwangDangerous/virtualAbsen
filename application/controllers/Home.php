@@ -63,8 +63,50 @@
             }
         }
 
+        public function ubahRapat($id)
+        {
+            if($this->session->userdata('pppomn') != null) {
+                $data['judul'] = "Ubah Rapat ".WEB ;
+                $data['data'] = $this->Home_model->getDataRapat($id)->row_array() ;
 
-        
+                $this->form_validation->set_rules('judul', 'Nama Rapat', 'required');
+                $this->form_validation->set_rules('tempat', 'Lokasi', 'required');
+                $this->form_validation->set_rules('tgl_rapat', 'Tanggal Rapat', 'required');
+                $this->form_validation->set_rules('jam_rapat', 'Jam', 'required');
+
+                if($this->form_validation->run() == FALSE) {
+                    $this->load->view('temp/header', $data) ;
+                    $this->load->view('temp/navbar') ;
+                    $this->load->view('home/ubah') ;
+                    $this->load->view('temp/footer') ;
+                }else{
+                    $this->Home_model->editDataRapat($id) ;
+                }
+            }else{
+                $this->session->set_flashdata('pesan' , 'tidak ada akses, silahkan login');
+                redirect(MYURL."login") ;
+            }
+        }
+
+        public function hapusRapat($id)
+        {
+            if($this->session->userdata('pppomn') != null) {
+                    $this->Home_model->deleteDataRapat($id) ;
+            }else{
+                $this->session->set_flashdata('pesan' , 'tidak ada akses, silahkan login');
+                redirect(MYURL."login") ;
+            }
+        }
+
+        public function selesai($id)
+        {
+            if($this->session->userdata('pppomn') != null) {
+                    $this->Home_model->clearDataRapat($id) ;
+            }else{
+                $this->session->set_flashdata('pesan' , 'tidak ada akses, silahkan login');
+                redirect(MYURL."login") ;
+            }
+        }
 
     }
 ?>
