@@ -49,8 +49,8 @@ class Absen extends CI_Controller{
     {
         $url ='http://siasn.pom.go.id/api/v1/employees?q='.$nip.'&key=8bf66e5171a35c0c6dedd1a1f53cc0d8';
         $curl = curl_init($url);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        // curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+        // curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_HTTPHEADER, array("Content-Type: application/x-www-form-urlencoded", 'Accept: application/json'));
         /* make request */
