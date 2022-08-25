@@ -8,17 +8,32 @@ class Home_model extends CI_Model{
         $adm = $this->session->userdata('pppomn');
         $this->db->where('status', 0) ;
         $this->db->join('admin', 'admin.id = rapat.id') ;
-        $this->db->order_by('id_rapat', 'desc') ;
+        $this->db->order_by('tgl_rapat', 'desc') ;
         return $this->db->get('rapat')->result_array()  ;
     }
-
+    
     public function getDataRapat($id=0){
         if($id > 0){
             $this->db->where('id_rapat', $id) ; 
         }
         $adm = $this->session->userdata('pppomn');
         $this->db->where('id', $adm) ;
+        $this->db->order_by('tgl_rapat', 'desc') ;
         return $this->db->get('rapat')  ;
+    }
+
+    public function getDataPeserta($id)
+    {
+        $this->db->where('id_rapat', $id) ;
+        $this->db->order_by('nama','asc') ;
+        return $this->db->get('form_absen')->result_array() ;
+    }
+
+    public function getDataParticipant($id)
+    {
+        $this->db->where('id_rapat', $id) ;
+        $this->db->order_by('nama','asc') ;
+        return $this->db->get('form_absen')->result_array() ;
     }
 
     public function addDataRapat()

@@ -1,6 +1,6 @@
 <?php 
-    // $this->db->where("id_rapat", $id_rapat);
-    // $this->db->delete('zoom_participant');
+    $this->db->where("id_rapat", $id_rapat);
+    $this->db->delete('zoom_participant');
 ?>
 
 
@@ -15,9 +15,9 @@
         <?php $data = [] ; ?>
         <?php foreach ($peserta as $d) : ?>
           <tr>
-            <td><?= $d['user_name']; ?></td>
-            <td><?= $d['ip_address']; ?></td>
-            <td><?= $d['join_time']; ?></td>
+                <td><?= $d['user_name']; ?></td>
+                <td><?= $d['ip_address']; ?></td>
+                <!-- <td><?//= $d['join_time']; ?></td> -->
           </tr>
 
           <?php 
@@ -25,10 +25,9 @@
                     'id_rapat' => $id_rapat,
                     'ip_zoom' => $d['ip_address'],
                     'nama_zoom' => $d['user_name'],
-                    'join_time' => $d['join_time']
                 ] ;
 
-            // $this->db->insert('zoom_participant', $data);
+            $this->db->insert('zoom_participant', $data);
           ?>
         <?php endforeach ; ?>
     </tbody>

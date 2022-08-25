@@ -32,9 +32,11 @@
             </div>
             <div class="offcanvas-body">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="<?= MYURL ; ?>admin">Admin</a>
-                    </li>
+                    <?php if($this->session->userdata('pppomn') == 1) : ?>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="<?= MYURL ; ?>admin">Admin</a>
+                        </li>
+                    <?php endif; ?>
                     <li class="nav-item">
                         <a class="nav-link active" href="<?= MYURL ; ?>home/rapat">Jadwal Rapat</a>
                     </li>

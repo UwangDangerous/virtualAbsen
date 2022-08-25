@@ -108,5 +108,95 @@
             }
         }
 
+        public function peserta($id) 
+        {
+            if($this->session->userdata('pppomn') != null) {
+                $data['judul'] = "Peserta Rapat ".WEB ;
+                $data['data'] = $this->Home_model->getDataPeserta($id) ;
+                $data['judul_halaman'] = $this->db->get_where('rapat', ['id_rapat'=>$id])->row_array()['judul'] ;
+
+                $this->form_validation->set_rules('judul', 'Nama Rapat', 'required');
+                $this->form_validation->set_rules('tempat', 'Lokasi', 'required');
+                $this->form_validation->set_rules('tgl_rapat', 'Tanggal Rapat', 'required');
+                $this->form_validation->set_rules('jam_rapat', 'Jam', 'required');
+
+                if($this->form_validation->run() == FALSE) {
+                    $this->load->view('temp/header', $data) ;
+                    $this->load->view('temp/navbar') ;
+                    $this->load->view('home/peserta') ;
+                    $this->load->view('temp/footer') ;
+                }else{
+                    $this->Home_model->editDataRapat($id) ;
+                }
+            }else{
+                $this->session->set_flashdata('pesan' , 'tidak ada akses, silahkan login');
+                redirect(MYURL."login") ;
+            }
+        }
+
+        public function participant($id) 
+        {
+            if($this->session->userdata('pppomn') != null) {
+                $data['judul'] = "Peserta Rapat ".WEB ;
+                $data['data'] = $this->Home_model->getDataPeserta($id) ;
+                $data['halaman'] = $this->db->get_where('rapat', ['id_rapat'=>$id])->row_array() ;
+                $data['zoom'] = $this->db->get_where('zoom_participant', ['id_rapat', $id])->result_array() ;
+
+                $this->form_validation->set_rules('judul', 'Nama Rapat', 'required');
+                $this->form_validation->set_rules('tempat', 'Lokasi', 'required');
+                $this->form_validation->set_rules('tgl_rapat', 'Tanggal Rapat', 'required');
+                $this->form_validation->set_rules('jam_rapat', 'Jam', 'required');
+
+                if($this->form_validation->run() == FALSE) {
+                    $this->load->view('temp/header', $data) ;
+                    $this->load->view('temp/navbar') ;
+                    $this->load->view('home/peserta_zoom') ;
+                    $this->load->view('temp/footer') ;
+                }else{
+                    $this->Home_model->editDataRapat($id) ;
+                }
+            }else{
+                $this->session->set_flashdata('pesan' , 'tidak ada akses, silahkan login');
+                redirect(MYURL."login") ;
+            }
+        }
+
+        public function dataPesertaZoomApi($id_rapat)
+        {
+            $id = $this->input->post('id');
+            $token = $this->input->post('token');
+            // echo $id.'ok' ;
+            // die ;
+
+            $curl = curl_init();
+            curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.zoom.us/v2/metrics/meetings/$id/participants?page_size=1000",
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 1,
+            CURLOPT_TIMEOUT => 300,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_HTTPHEADER => array(
+                "authorization: Bearer $token",
+                "content-type: application/json"
+            ),
+            ));
+            // header('Content-Type: application/json');
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+            curl_close($curl);
+            if ($err) {
+                echo "cURL Error #:" . $err;
+            }else {
+                // echo $response;
+                $data = json_decode($response, true) ;
+                // var_dump($data['participants']) ; die ;
+                $data['peserta'] = $data['participants'] ;
+                $data['id_rapat'] = $id_rapat ;
+                $this->load->view('home/getPeserta', $data);
+            }
+        }
+
     }
 ?>

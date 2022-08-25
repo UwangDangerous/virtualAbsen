@@ -3,7 +3,12 @@
         <div class="row justify-content-center" id="home">
             <div class="col-lg-11">
                 <div class="card p-2 text-center">
-
+                    <?php if($this->session->flashdata('pesan')) : ?>
+                        <div class="alert alert-<?= $this->session->flashdata('warna') ;?> alert-dismissible fade show mt-2 mb-3" role="alert">
+                            <?= $this->session->flashdata('pesan'); ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php endif; ?>
                     <h3>Daftar Rapat PPPOMN</h3>
 
                     <div class="table-responsive">
